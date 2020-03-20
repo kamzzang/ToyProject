@@ -21,25 +21,5 @@ pip install serial
 #### 4. 메뉴얼
 * [K1205D 메뉴얼](http://www.vupower.com/download/K_USB_Manual_Korea_Ver3.2.pdf)
 
-#### 5. 패턴 csv 형식
-* MODE  
-|MODE|내용|VALUE|
-|---|---|---|
-|1|정전압(CV)|전압(V)|
-|2|정전류(CC)|전류(A)|
-* OUTPUT  
-|OUTPUT|내용|
-|---|---|
-|1|ON|
-|2|OFF|
-* EXAMPLE
-|TIME|MODE|VALUE|PUTPUT|
-|---|---|---|---|
-|1|1|8|1|
-|2|1|8|0|
-|3|1|8|0|
-|4|1|8|1|
-|5|1|8|1|
-
-#### 6. 실행화면
-![image.png](attachment:image.png)
+#### 5. 실행화면
+![image](./PowerSupplyController/PowerSupplyController.jpg)
