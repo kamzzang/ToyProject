@@ -1,9 +1,9 @@
 # ToyProject
-My Toy Projects for Work Efficiency (Design, Test, Analysis, etc.)
+* My Toy Projects for Work Efficiency (Design, Test, Analysis, etc.)  
 ------
 
 ## 1. PowerSupplyController
-### VuPOWER 사의 programmable power supply인 K1205D을 이용한 솔레노이드 코일 시험용 프로그램
+* VuPOWER 사의 programmable power supply인 K1205D을 이용한 솔레노이드 코일 시험용 프로그램  
 
 #### A. 주요 기능
 * 파워서플라이와 USB를 이용한 RS232 통신
@@ -28,13 +28,13 @@ pip install serial
 
 
 ## 2. PatentSearch
-### 특허 검색 사이트(WIPS ON)에서 원하는 키워드를 이용한 특허 검색 자동 크롤러
-* [WIPS ON](https://www.wipson.com/service/mai/main.wips)
+* 특허 검색 사이트(WIPS ON)에서 원하는 키워드를 이용한 특허 검색 자동 크롤러  
+[WIPS ON](https://www.wipson.com/service/mai/main.wips)  
 ------
 
 
 ## 3. OAScheduler
-### 업무효율화를 위한 윈도우 작업스케줄러 생성 프로그램으로, 1차 특허 검색 작업 스케줄러 적용
+* 업무효율화를 위한 윈도우 작업스케줄러 생성 프로그램으로, 1차 특허 검색 작업 스케줄러 적용  
 
 #### A. 주요 기능
 * WIPS ON 아이디 비번 저장
