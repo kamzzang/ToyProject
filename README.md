@@ -23,3 +23,23 @@ pip install serial
 
 #### 5. 실행화면
 ![image](./PowerSupplyController/PowerSupplyController.jpg)
+
+
+## PatentSearch
+### 특허 검색 사이트(WIPS ON)에서 원하는 키워드를 이용한 특허 검색 자동 크롤러
+* [WIPS ON](https://www.wipson.com/service/mai/main.wips)
+
+
+## OAScheduler
+### 업무효율화를 위한 윈도우 작업스케줄러 생성 프로그램으로, 1차 특허 검색 작업 스케줄러 적용
+
+#### 1. 주요 기능
+* WIPS ON 아이디 비번 저장
+* 한국, 미국, 유럽, 일본 특허 검색 가능
+* 스케줄러 설정 : 매주 (각 요일 설정), 매월(월초, 월말)
+* 저장하면 아이디, 비번, 검색국가 및 검색어는 "WIPS.csv"에 저장
+* 설정한 일정 단위로 작업 스케줄러 "특허 검색" 등록  
+  (기존 스케줄러에 "특허 검색"은 삭제 후 신규 등록)
+  
+#### 2. 실행화면
+![image](./OAScheduler/OAScheduler_screenshot.jpg)
