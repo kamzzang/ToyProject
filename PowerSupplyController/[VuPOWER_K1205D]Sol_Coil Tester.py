@@ -23,7 +23,7 @@ form_class = uic.loadUiType("MainWindow.ui")[0]
 root = Tk()
 root.withdraw()
 
-print("SOL_COIL TESTER")
+print("POWER SUPPLY CONTROLLER")
 print("Copyright 2019. KAMZZANG")
 
 class MyWindow(QMainWindow, form_class):
@@ -31,7 +31,7 @@ class MyWindow(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowTitle("SOL COIL TESTER")  # 제목표시
+        self.setWindowTitle("POWER SUPPLY CONTROLLER")  # 제목표시
         self.setFixedSize(554, 697)  # 메인윈도우 사이즈 고정
 
         # 버튼 등 시그널 발생에 따른 함수 연결
