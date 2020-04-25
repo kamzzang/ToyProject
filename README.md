@@ -56,3 +56,7 @@ pip install serial
 * 영화 예매 순위, 개봉 예정작 정보 응답(완료)
 * 날씨 정보 응답(예정)
 * 기타 정보는 계속 업데이트 예정
+
+#### B. 실행화면
+![Demo img](./KakaoChatbot/img/KakaoChatBot_demo_1.gif)
+------
