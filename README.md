@@ -23,7 +23,7 @@ pip install serial
 * [K1205D 메뉴얼](http://www.vupower.com/download/K_USB_Manual_Korea_Ver3.2.pdf)
 
 #### E. 실행화면
-![image](./PowerSupplyController/PowerSupplyController.jpg)
+![image](./PowerSupplyController/img/PowerSupplyController_screenshot.jpg)
 ------
 
 
