@@ -47,3 +47,12 @@ pip install serial
 #### B. 실행화면
 ![image](./OAScheduler/OAScheduler_screenshot.jpg)
 ------
+
+
+## 4. KakaoChatbot
+* Flask를 이용한 카카오톡 챗봇 제작으로 생활 편의를 위한 다양한 정보를 요청/응답할 수 있도록 함
+
+#### A. 주요 기능
+* 영화 예매 순위, 개봉 예정작 정보 응답(완료)
+* 날씨 정보 응답(예정)
+* 기타 정보는 계속 업데이트 예정
