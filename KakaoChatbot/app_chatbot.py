@@ -8,25 +8,20 @@ import urllib
 
 app = Flask(__name__)
 
-# 봇에 요청이 올 때마다 request로 요청하면 응답 속도가 느려지는 문제가 확인되어 봇 실행 시 필요한  request 및 beautifulsoup 완료 후 대기
-# 1. 영화 예매 순위 응답용
-url = 'https://movie.naver.com/movie/running/current.nhn' # 네이버 영화 웹 페이지 - 현재 상영영화 - 예매순
-response = requests.get(url)
-soup_rank = BeautifulSoup(response.text, 'html.parser')
-# 2. 개봉 예정 영화 순위 응답용
-url = 'https://movie.naver.com/movie/running/premovie.nhn?order=reserve' # 네이버 영화 웹 페이지 - 개봉 예정 영화 - 예매순
-response = requests.get(url)
-soup_schdule = BeautifulSoup(response.text, 'html.parser')
-
 def movie_search(search_type, start_cnt): # 영화 정보 제공 서비스 실행용 함수
-    
+    movie_url = { 'rank' : 'https://movie.naver.com/movie/running/current.nhn', # 네이버영화 현재 상영작 예매순위 1~20위
+                  'schdule' : 'https://movie.naver.com/movie/running/premovie.nhn?order=reserve' # 네이버영화 개봉 예정작 예매순 1~20위 
+                }
+
     img_url = []        # 포스터 경로 url
     title = []          # 영화 제목
     description = []    # 세부 정보 : 영화 예매 순위 응답 - 평점과 예매율, 개봉 예정작 응답 - 개봉예정일
     link_url = []       # 영화 예매 및 정보가 제공되는 사이트로 연결을 위한 웹 페이지 경로 url
     
     if search_type == 'rank': # 영화 예매 순위 요청
-        soup = soup_rank
+        url = movie_url[search_type]
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
         
         img_tag = soup.find_all("div", {"class":"thumb"})   # 영화 포스터 이미지, 제목, 정보제공 링크가 있는 태그
         cnt = 1
@@ -65,7 +60,9 @@ def movie_search(search_type, start_cnt): # 영화 정보 제공 서비스 실�
         button_message = "영화 예매 순위 더보기" # 총 10위까지 응답을 위해서 첫 메시지에는 "순위 더보기 버튼"을 넣어주기 위한 버튼 클릭 시 발화되는 메세지
         
     else:
-        soup = soup_schdule
+        url = movie_url[search_type]
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
         
         img_tag = soup.find_all("div", {"class":"thumb"})
         cnt = 1
@@ -184,7 +181,7 @@ def movies():
 @app.route('/weather', methods=['POST']) # 날씨 정보 블럭에 스킬로 연결된 경로
 def weather():
 
-    req = request.get_json()
+    # req = request.get_json()
 
     answer = '날씨 정보 제공 서비스 준비중입니다.' # 날씨 정보는 추후 작업 예정
     
