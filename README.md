@@ -4,6 +4,7 @@
 
 ## 1. PowerSupplyController
 * VuPOWER 사의 programmable power supply인 K1205D을 이용한 솔레노이드 코일 시험용 프로그램  
+* [상세설명](https://blog.naver.com/kamzzang1/221875003851)
 
 #### A. 주요 기능
 * 파워서플라이와 USB를 이용한 RS232 통신
@@ -51,6 +52,10 @@ pip install serial
 
 ## 4. KakaoChatbot
 * Flask를 이용한 카카오톡 챗봇 제작으로 생활 편의를 위한 다양한 정보를 요청/응답할 수 있도록 함
+* [카카오i오픈빌더 신청](https://blog.naver.com/kamzzang1/221922192463)
+* [챗봇 시나리오 작성](https://blog.naver.com/kamzzang1/221926516530)
+* [구름IDE 서버셋팅](https://blog.naver.com/kamzzang1/221934101918)
+* [최종 마무리](https://blog.naver.com/kamzzang1/221934665928)
 
 #### A. 주요 기능
 * 영화 예매 순위, 개봉 예정작 정보 응답(완료)
