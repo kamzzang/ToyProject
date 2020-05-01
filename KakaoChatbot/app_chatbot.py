@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 import requests
 import urllib
 
+import json
+
 app = Flask(__name__)
 
 def movie_search(search_type, start_cnt): # 영화 정보 제공 서비스 실행용 함수
@@ -199,6 +201,80 @@ def weather():
         }
     }
 
+    return jsonify(res)
+
+@app.route('/locsearch', methods=['POST']) # 길찾기 정보 블럭에 스킬로 연결된 경로
+def locsearch():
+    req = request.get_json()
+    
+    params = req['action']['detailParams']
+    
+    keyword = params['keyword']['value'] # 되묻기를 통해서 입력받은 일반 text형 키워드(날씨에서 사용하는 지역으로 인식되지 않게 하기 위함)
+    
+    url = 'https://dapi.kakao.com/v2/local/search/keyword.json?query='+keyword
+    headers = {"Authorization": "KakaoAK b0ac56c826bb8e11d36f4eef04a186ec"}
+    result = json.loads(str(requests.get(url,headers=headers).text))
+    
+    search_url = []
+    title = []
+    
+    if len(result['documents']) > 0: # 입력받은 키워드 값으로 API 호출 시 값이 있을 경우 저장함
+        for data in result['documents']:
+            title.append(data['place_name'])
+            search_url.append('https://map.kakao.com/link/to/{}'.format(data['id']))
+
+        title.insert(0,'카카오맵 길찾기로 연결됩니다.')
+        search_url.insert(0,'')
+    else:
+        res = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "simpleText": {
+                            "text": "검색이 불가한 지역입니다."
+                        }
+                    }
+                ]
+            }
+        }
+        return jsonify(res) 
+        
+    listItems=[]
+
+    cnt=0
+    if len(title) >= 5: items = 6
+    else: items = len(title)
+        
+    for i in range(items): # 응답용 카트 리스트 타입의 res에 추가할 정보 완성
+        if cnt == 0: itemtype = 'title' # 카드 이미지의 첫 type은 title
+        else: itemtype = 'item'         # 카드 이미지의 제목 다음 type은 item
+            
+        listItems.append({
+                "type": itemtype,               # 카드 리스트의 아이템 티입
+                "title": title[i],              # 제목
+                "linkUrl": {
+                  "type": "OS",                 # PC나 모바일별 별도 url설정 가능하나 web용으로 동일 적용
+                    "webUrl": search_url[i]       # 영화 정보 링크 url
+                    }
+                })
+        cnt+=1
+
+    # 카드 리스트형 응답용 메시지
+    res = {
+          "contents": [
+            {
+              "type": "card.list",
+              "cards": [
+                {
+                  "listItems": listItems
+                }
+              ]
+            }
+          ]
+        }            
+
+    # 전송
     return jsonify(res)
 
 
