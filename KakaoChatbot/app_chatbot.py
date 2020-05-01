@@ -183,7 +183,7 @@ def movies():
     return jsonify(res)
 
 
-@application.route('/weather', methods=['POST']) # 날씨 정보 블럭에 스킬로 연결된 경로
+@app.route('/weather', methods=['POST']) # 날씨 정보 블럭에 스킬로 연결된 경로
 def weather():
 
     req = request.get_json()
