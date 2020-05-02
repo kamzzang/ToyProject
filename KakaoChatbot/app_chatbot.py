@@ -219,7 +219,10 @@ def weather():
     html = page.read()
     soup = BeautifulSoup(html, 'html.parser')
     
-    region = soup.find('span', {'class':'btn_select'}).text
+    if soup.find('span', {'class':'btn_select'})==None:    # 동일 시에 구만 다른 같은 이름의 동이 있을 경우 에러발생
+        region = soup.find('li', {'role' : 'option'}).text 
+    else:
+        region = soup.find('span', {'class':'btn_select'}).text
     
     if 'sys_date_period' in params.keys(): # 주 단위의 날씨를 요청했을 경우
         weekly_weather = soup.find_all('li', {'class':'date_info today'})
