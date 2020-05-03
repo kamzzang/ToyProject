@@ -58,9 +58,9 @@ pip install serial
 * [최종 마무리](https://blog.naver.com/kamzzang1/221934665928)
 
 #### A. 주요 기능
-* 영화 예매 순위, 개봉 예정작 정보 응답(완료)
-* 날씨 정보 응답(완료)
-* 추가 응답은 계속 업데이트 예정
+* 영화 예매 순위, 개봉 예정작 정보 응답
+* 날씨 정보 응답
+* 길찾기 정보 응답
 
 #### B. 실행화면
 ![Demo img](./KakaoChatbot/img/KakaoChatBot_demo_1.gif)
