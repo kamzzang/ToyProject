@@ -65,3 +65,9 @@ pip install serial
 #### B. 실행화면
 ![Demo img](./KakaoChatbot/img/KakaoChatBot_demo_1.gif)
 ------
+
+
+## 5. Macro
+* 마우스 컨트롤
+ * 마우스를 원하는 포인트에 위치하고 왼쪽버튼 클릭으로 위치를 저장을 반복함. 오른쪽 마우스 클릭 시 저장 완료
+ * 마우스 클릭 후 인터벌 설정, 전체 반복 횟수 설정으로 매크로 시작됨
